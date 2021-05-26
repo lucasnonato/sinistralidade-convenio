@@ -1,0 +1,67 @@
+<po-page-default p-title="Sinistralidade">
+
+
+
+<div class="po-row">       
+    <div class="po-lg-9 pending-billing-content-help">   
+      <p>Bem vindo ao portal da sua Operadora de Saúde</p>
+      <br/>       
+      <p>Selecione uma das empresas conveniadas para visualizar as informações de sinistralidade de seus beneficiarios.</p>
+      <br/>
+    </div>
+</div>
+
+<div class="po-wrapper">
+  <po-widget class="po-lg-6">
+    <po-combo
+      name="companyName"
+      [(ngModel)]="companyName"
+      p-field-label="description"
+      p-field-value="code"      
+      p-label="Informe uma Empresa"
+      p-filter-service="http://10.171.67.162:8011/rest/convenio/v1/companies"
+      p-sort
+      (p-change)="onChangeCompany($event)"
+      
+    >
+    </po-combo>    
+  </po-widget>
+
+  <po-container  *ngIf="showInfo" >    
+    <div class="po-row">
+      <div class="po-md-6">
+        <po-gauge
+          p-title="Indice de Sinistralidade"
+          p-value="{{totalValue}}"
+          p-description="{{percentual}} % de sinistralidade"
+          [p-ranges]="ranges"
+        ></po-gauge>
+      </div>    
+      <div class="po-md-6"> 
+        <po-chart
+          [p-series]="valueChart"
+        >        
+        </po-chart> 
+    </div>
+    </div>
+  </po-container>
+
+
+
+</div>
+<br/>
+<div *ngIf="showInfo" class="po-wrapper">
+  <po-list-view
+    p-property-title="name"
+    [p-items]="values"
+  >
+    <ng-template p-list-view-content-template let-item>
+      <div class="po-row">
+        <po-info class="po-md-12" p-label="Tipo" [p-value]="item.description"></po-info>
+        <po-info class="po-md-12" p-label="Valor" [p-value]="item.value"></po-info>
+      </div>
+    </ng-template>
+  </po-list-view>
+</div>
+
+</po-page-default>

@@ -1,0 +1,34 @@
+.empty-forms-dropdown {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 1em;
+}
+
+.btnsearch {
+ margin-top: 2em;
+}
+
+.gloss-btn-item{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 1em;
+  /*margin-top: 70%;*/
+  color:#097b98;
+}
+
+.pending-billing-title, .pending-billing-content {
+  border-bottom: 1px solid #eceeee;
+  padding: 10px;
+}
+
+.pending-billing-title {
+  font-size: 20px;
+}
+
+.pending-billing-content-help {
+  font-size: 14px;
+}
+
+.divt{
+  border-bottom: 1px solid #eceeee;
+}
